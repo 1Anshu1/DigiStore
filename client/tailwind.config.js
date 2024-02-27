@@ -7,6 +7,9 @@ export default {
                 "green": "var(--green)",
                 "black": "var(--black)",
                 "white": "var(--white)",
+                "gray": "var(--gray)",
+                "darkGray": "var(--darkGray)",
+                "rating-yellow": "var(--rating-yellow)"
               },
         },
     },

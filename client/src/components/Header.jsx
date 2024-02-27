@@ -1,5 +1,6 @@
-import { FaSearch, FaUser } from "react-icons/fa";
+import { FaSearch, FaUser, FaRegHeart } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
+
 import ContentWrapper from "./ContentWrapper"
 
 const Header = () => {
@@ -13,6 +14,7 @@ const Header = () => {
                 </div>
                 <div className="flex items-center gap-5 ">
                     <FaUser className="text-2xl" />
+                    <FaRegHeart className="text-2xl" />
                     <FaCartShopping className="text-2xl" />
                     <button className="bg-[#80c342] px-3 py-1 rounded-sm font-semibold text-white">Login</button>
                 </div>

@@ -8,6 +8,9 @@
     --green: #80c342;
     --black: #000000;
     --white: #ffffff;
+    --gray: #d1d5db;
+    --darkGray: #2f2f2f;
+    --rating-yellow: #ebdf0b;
 }
 
 * {
