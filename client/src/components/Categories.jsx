@@ -1,57 +1,49 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { RiArrowDropDownLine } from "react-icons/ri";
-
 import ContentWrapper from "./ContentWrapper"
 
 export const Categories = () => {
+    const navigate = useNavigate(null)
+
+    const handleNavigation = (e) => {
+        const categoryName = e.target.innerText
+        navigate(`/productList/${categoryName}`)
+    }
+
     return (
         <div className="bg-green">
             <ContentWrapper>
                 <ul className="flex justify-between font-bold py-3 ">
-                    <Link to='/'>
-                        <li className="flex items-center py-1 hover:text-white">
-                            SmartPhones
-                            <RiArrowDropDownLine className="text-2xl" />
-                        </li>
-                    </Link>
-                    <Link to='/'>
-                        <li className="flex items-center py-1 hover:text-white">
-                            Laptops
-                            <RiArrowDropDownLine className="text-2xl" />
-                        </li>
-                    </Link>
-                    <Link to='/'>
-                        <li className="flex items-center py-1 hover:text-white">
-                            Monitors
-                            <RiArrowDropDownLine className="text-2xl" />
-                        </li>
-                    </Link>
-                    <Link to='/'>
-                        <li className="flex items-center py-1 hover:text-white">
-                            Televisions
-                            <RiArrowDropDownLine className="text-2xl" />
-                        </li>
-                    </Link>
-                    <Link to='/'>
-                        <li className="flex items-center py-1 hover:text-white">
-                            Audio
-                            <RiArrowDropDownLine className="text-2xl" />
-                        </li>
-                    </Link>
-                    <Link to='/'>
-                        <li className="flex items-center py-1 hover:text-white">
-                            Cameras
-                            <RiArrowDropDownLine className="text-2xl" />
-                        </li>
-                    </Link>
-                    <Link to='/'>
-                        <li className="flex items-center py-1 hover:text-white">
-                            Accessories
-                            <RiArrowDropDownLine className="text-2xl" />
-                        </li>
-                    </Link>
+                    <li className="flex items-center py-1 hover:text-white" >
+                        <div className="cursor-pointer" onClick={handleNavigation}>Smartphones</div>
+                        <RiArrowDropDownLine className="text-2xl" />
+                    </li>
+                    <li className="flex items-center py-1 hover:text-white">
+                        <div className="cursor-pointer" onClick={handleNavigation}>Laptops</div>
+                        <RiArrowDropDownLine className="text-2xl" />
+                    </li>
+                    <li className="flex items-center py-1 hover:text-white" onClick={handleNavigation}>
+                        <div className="cursor-pointer" onClick={handleNavigation}>Monitors</div>
+                        <RiArrowDropDownLine className="text-2xl" />
+                    </li>
+                    <li className="flex items-center py-1 hover:text-white" >
+                        <div className="cursor-pointer" onClick={handleNavigation}>Televisions</div>
+                        <RiArrowDropDownLine className="text-2xl" />
+                    </li>
+                    <li className="flex items-center py-1 hover:text-white">
+                        <div className="cursor-pointer" onClick={handleNavigation}>Audio</div>
+                        <RiArrowDropDownLine className="text-2xl" />
+                    </li>
+                    <li className="flex items-center py-1 hover:text-white">
+                        <div className="cursor-pointer" onClick={handleNavigation}>Cameras</div>
+                        <RiArrowDropDownLine className="text-2xl" />
+                    </li>
+                    <li className="flex items-center py-1 hover:text-white">
+                        <div className="cursor-pointer" onClick={handleNavigation}>Accessories</div>
+                        <RiArrowDropDownLine className="text-2xl" />
+                    </li>
                 </ul>
             </ContentWrapper>
-        </div>
+        </div >
     )
 }

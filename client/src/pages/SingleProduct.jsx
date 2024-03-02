@@ -148,7 +148,7 @@ const SingleProduct = () => {
           ))}
         </div>
       </div>
-      <div className="">
+      {/* <div className="">
         <div className="font-semibold text-2xl">Similar Items</div>
         <div className="flex">
           <ProductCard />
@@ -156,7 +156,7 @@ const SingleProduct = () => {
           <ProductCard />
           <ProductCard />
         </div>
-      </div>
+      </div> */}
     </ContentWrapper >
   )
 }
