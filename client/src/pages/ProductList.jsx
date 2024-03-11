@@ -1,17 +1,19 @@
+import { useEffect, useState } from 'react'
 import { useParams, useLocation, useSearchParams } from 'react-router-dom'
-
+import {useDispatch, useSelector} from 'react-redux'
 import { ProductCard } from "../components/ProductCard"
 import BrandFilter from "../components/productList/BrandFilter"
 import PriceFilter from "../components/productList/PriceFilter"
 import RatingFilter from "../components/productList/RatingFilter"
 import ContentWrapper from "../components/ContentWrapper"
-import useFetch from '../hooks/useFetch.js'
-import { useState } from 'react'
+import { getAllProductAction } from '../redux/features/productSlice.js'
 
 const ProductList = () => {
   const location = useLocation()
+  const dispatch = useDispatch()
+  const {data, loading, error} = useSelector(state => state.product)
   const category = useParams().category
-  const { data, loading, error } = useFetch(`/product/${category}${location.search}`)
+ 
 
   const [searchParams, setSearchParams] = useSearchParams()
   const [filterArray, setFilterArray] = useState([])
@@ -21,6 +23,10 @@ const ProductList = () => {
     newSearchParams.set('sort', e.target.value)
     setSearchParams(newSearchParams)
   }
+
+  useEffect(() => {
+    dispatch(getAllProductAction(`${category}${location.search}`))
+  }, [location])
 
 
   //TODO: remove the checked mark from clicking on filter criteria tags
@@ -34,29 +40,27 @@ const ProductList = () => {
       <div className="my-10 flex">
 
         {/* Filter criteria */}
-        <div className="px-5 w-80 bg-green border-[2px] border-gray">
+        <div className="px-5 w-80 bg-primaryGreen border-[2px] border-gray">
           <div className="">
             <div className="font-bold my-3">Brand</div>
             <BrandFilter filterArray={filterArray} setFilterArray={setFilterArray} />
           </div>
           <div className="border-y-[2px] border-y-gray ">
-            <div className="font-bold my-3">Price</div>
             <PriceFilter />
           </div>
           <div className="">
-            <div className="font-bold my-3">Rating</div>
             <RatingFilter />
           </div>
         </div>
 
 
         <div className="px-5 w-full">
-          <button className='bg-green border-2'>Filter</button>
+          <button className='bg-primaryGreen border-2'>Filter</button>
           <div className="flex gap-5">
             {
               filterArray.map((item, idx) => {
                 return (
-                  <div key={idx} className="flex gap-5 border-2 border-green w-fit">
+                  <div key={idx} className="flex gap-5 border-2 border-primaryGreen w-fit">
                     <div className="">{item}</div>
                     {/* <div className="cursor-pointer" onClick={removeFilter}>X</div> */}
                   </div>
@@ -80,7 +84,7 @@ const ProductList = () => {
 
           <div className="grid grid-row-4 grid-cols-3 grid-flow-row-dense gap-5 mt-5">
             {
-              data && data.products.map((item) => (
+               data && data?.map((item) => (
                 <ProductCard key={item._id} item={item} />
               ))
             }

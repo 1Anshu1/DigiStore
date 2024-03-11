@@ -43,18 +43,18 @@ const Banner = () => {
     return (
         <div className="">
             <div className="relative flex items-center">
-                <FaChevronLeft className='absolute left-2 text-8xl cursor-pointer text-green' onClick={handelLeft} />
+                <FaChevronLeft className='absolute left-2 text-8xl cursor-pointer text-primaryGreen' onClick={handelLeft} />
 
                 <div className="w-full h-[600px]">
                     <img src={bannerImages[currentslide]} alt="" className="w-[100%] h-[100%] object-cover" />
                 </div>
 
-                <FaChevronRight className='absolute right-2 text-8xl cursor-pointer text-green' onClick={handleRight} />
+                <FaChevronRight className='absolute right-2 text-8xl cursor-pointer text-primaryGreen' onClick={handleRight} />
 
                 <div className="absolute bottom-0 left-[50%] translate-x-[-50%] flex justify-center gap-2 py-4 cursor-pointer">
                     {
                         bannerImages.map((item, idx) => (
-                            <div key={idx} className={`rounded-full h-3 w-3 ${idx === currentslide ? 'bg-white' : 'bg-green'}`} onClick={() => handleDots(idx)}></div>
+                            <div key={idx} className={`rounded-full h-3 w-3 ${idx === currentslide ? 'bg-white' : 'bg-primaryGreen'}`} onClick={() => handleDots(idx)}></div>
                         ))
                     }
                 </div>

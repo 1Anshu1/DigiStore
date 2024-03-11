@@ -3,7 +3,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import ContentWrapper from "./ContentWrapper"
 
 export const Categories = () => {
-    const navigate = useNavigate(null)
+    const navigate = useNavigate(null)    
 
     const handleNavigation = (e) => {
         const categoryName = e.target.innerText
@@ -11,7 +11,7 @@ export const Categories = () => {
     }
 
     return (
-        <div className="bg-green">
+        <div className="bg-primaryGreen">
             <ContentWrapper>
                 <ul className="flex justify-between font-bold py-3 ">
                     <li className="flex items-center py-1 hover:text-white" >

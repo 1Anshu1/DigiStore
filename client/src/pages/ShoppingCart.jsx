@@ -17,16 +17,16 @@ const ShoppingCart = () => {
           <div className="flex flex-col justify-between h-[100px]">
             <div className="">Product Name</div>
             <div className="flex gap-5 items-center">
-              <FaCheck className='text-green' />
+              <FaCheck className='text-primaryGreen' />
               <span className="">In Stock</span>
             </div>
           </div>
           <div className="flex gap-2 items-center">
             <span className="font-bold">Quantity  : </span>
             <div className="flex h-10 bg-gray rounded-lg text-2xl">
-              <div className="cursor-pointer flex justify-center items-center w-8 active:text-green select-none" onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</div>
+              <div className="cursor-pointer flex justify-center items-center w-8 active:text-primaryGreen select-none" onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</div>
               <div className=" flex justify-center items-center w-20">{quantity}</div>
-              <div className="cursor-pointer flex justify-center items-center w-8 active:text-green select-none" onClick={() => setQuantity(quantity < 10 ? quantity + 1 : 10)}>+</div>
+              <div className="cursor-pointer flex justify-center items-center w-8 active:text-primaryGreen select-none" onClick={() => setQuantity(quantity < 10 ? quantity + 1 : 10)}>+</div>
             </div>
           </div>
           <div className="text-2xl">
@@ -42,16 +42,16 @@ const ShoppingCart = () => {
           <div className="flex flex-col justify-between h-[100px]">
             <div className="">Product Name</div>
             <div className="flex gap-5 items-center">
-              <FaCheck className='text-green' />
+              <FaCheck className='text-primaryGreen' />
               <span className="">In Stock</span>
             </div>
           </div>
           <div className="flex gap-2 items-center">
             <span className="font-bold">Quantity  : </span>
             <div className="flex h-10 bg-gray rounded-lg text-2xl">
-              <div className="cursor-pointer flex justify-center items-center w-8 active:text-green select-none" onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</div>
+              <div className="cursor-pointer flex justify-center items-center w-8 active:text-primaryGreen select-none" onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</div>
               <div className=" flex justify-center items-center w-20">{quantity}</div>
-              <div className="cursor-pointer flex justify-center items-center w-8 active:text-green select-none" onClick={() => setQuantity(quantity < 10 ? quantity + 1 : 10)}>+</div>
+              <div className="cursor-pointer flex justify-center items-center w-8 active:text-primaryGreen select-none" onClick={() => setQuantity(quantity < 10 ? quantity + 1 : 10)}>+</div>
             </div>
           </div>
           <div className="text-2xl">
@@ -67,16 +67,16 @@ const ShoppingCart = () => {
           <div className="flex flex-col justify-between h-[100px]">
             <div className="">Product Name</div>
             <div className="flex gap-5 items-center">
-              <FaCheck className='text-green' />
+              <FaCheck className='text-primaryGreen' />
               <span className="">In Stock</span>
             </div>
           </div>
           <div className="flex gap-2 items-center">
             <span className="font-bold">Quantity  : </span>
             <div className="flex h-10 bg-gray rounded-lg text-2xl">
-              <div className="cursor-pointer flex justify-center items-center w-8 active:text-green select-none" onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</div>
+              <div className="cursor-pointer flex justify-center items-center w-8 active:text-primaryGreen select-none" onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</div>
               <div className=" flex justify-center items-center w-20">{quantity}</div>
-              <div className="cursor-pointer flex justify-center items-center w-8 active:text-green select-none" onClick={() => setQuantity(quantity < 10 ? quantity + 1 : 10)}>+</div>
+              <div className="cursor-pointer flex justify-center items-center w-8 active:text-primaryGreen select-none" onClick={() => setQuantity(quantity < 10 ? quantity + 1 : 10)}>+</div>
             </div>
           </div>
           <div className="text-2xl">
@@ -98,7 +98,7 @@ const ShoppingCart = () => {
             <div className="">Order Total</div>
             <div className="">110000</div>
           </div>
-          <button className='bg-green text-white w-full rounded-lg p-4'>Checkout</button>
+          <button className='bg-primaryGreen text-white w-full rounded-lg p-4'>Checkout</button>
           <div className="flex flex-col items-center">
             <div className="">Or</div>
             <div className="">Continue Shopping </div>

@@ -16,22 +16,22 @@ export const Footer = () => {
                     <div className="flex-1">
                         <h2 className='text-xl pb-2'>Product Categories</h2>
                         <ul className="text-sm">
-                            <Link to='/'><li className="py-1 hover:text-green">Laptops</li></Link>
-                            <Link to='/'><li className="py-1 hover:text-green">SmartPhones</li></Link>
-                            <Link to='/'><li className="py-1 hover:text-green">Monitors</li></Link>
-                            <Link to='/'><li className="py-1 hover:text-green">Televisions</li></Link>
-                            <Link to='/'><li className="py-1 hover:text-green">Audio</li></Link>
-                            <Link to='/'><li className="py-1 hover:text-green">Cameras</li></Link>
+                            <Link to='/'><li className="py-1 hover:text-primaryGreen">Laptops</li></Link>
+                            <Link to='/'><li className="py-1 hover:text-primaryGreen">SmartPhones</li></Link>
+                            <Link to='/'><li className="py-1 hover:text-primaryGreen">Monitors</li></Link>
+                            <Link to='/'><li className="py-1 hover:text-primaryGreen">Televisions</li></Link>
+                            <Link to='/'><li className="py-1 hover:text-primaryGreen">Audio</li></Link>
+                            <Link to='/'><li className="py-1 hover:text-primaryGreen">Cameras</li></Link>
                         </ul>
                     </div>
                     <div className="flex-1">
                         <h2 className='text-xl pb-2'>Company</h2>
                         <ul className="text-sm">
-                            <Link to='/'><li className="py-1 hover:text-green">About</li></Link>
-                            <Link to='/'><li className="py-1 hover:text-green">Careers</li></Link>
-                            <Link to='/'><li className="py-1 hover:text-green">Services</li></Link>
-                            <Link to='/'><li className="py-1 hover:text-green">Privacy Policy</li></Link>
-                            <Link to='/'><li className="py-1 hover:text-green">Terms of Service</li></Link>
+                            <Link to='/'><li className="py-1 hover:text-primaryGreen">About</li></Link>
+                            <Link to='/'><li className="py-1 hover:text-primaryGreen">Careers</li></Link>
+                            <Link to='/'><li className="py-1 hover:text-primaryGreen">Services</li></Link>
+                            <Link to='/'><li className="py-1 hover:text-primaryGreen">Privacy Policy</li></Link>
+                            <Link to='/'><li className="py-1 hover:text-primaryGreen">Terms of Service</li></Link>
                         </ul>
                     </div>
                     <div className="flex-1">

@@ -1,10 +1,19 @@
 import { FaSearch, FaUser, FaRegHeart } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link } from 'react-router-dom'
-
+import { useSelector, useDispatch } from "react-redux";
 import ContentWrapper from "./ContentWrapper"
+import { logout } from "../redux/features/authSlice";
+
+
 
 const Header = () => {
+    const {data} = useSelector((state) => state.auth)
+    const dispatch = useDispatch()
+    const handleLogout = async () => {
+        dispatch(logout())
+    }
+    
     return (
         <ContentWrapper>
             <div className="flex justify-between items-center py-2">
@@ -15,14 +24,25 @@ const Header = () => {
                     <input type="text" placeholder="What are you looking for ?" className="w-full px-3 outline-none" />
                     <FaSearch className="text-4xl px-2" />
                 </div>
-                <div className="flex items-center gap-5 ">
-                    <Link to='/my/profile'><FaUser className="text-2xl cursor-pointer" /></Link>
-                    <Link to='/wishlist'><FaRegHeart className="text-2xl cursor-pointer" /></Link>
-                    <Link to='/cart'><FaCartShopping className="text-2xl cursor-pointer" /></Link>
-                    <button className="bg-[#80c342] px-3 py-1 rounded-sm font-semibold text-white cursor">
-                        <Link to='/login'>Login</Link>
-                    </button>
-                </div>
+                {
+                    data ?
+                        <div className="flex items-center gap-5 ">
+                            <Link to='/profile'><FaUser className="text-2xl cursor-pointer" /></Link>
+                            <Link to='/wishlist'><FaRegHeart className="text-2xl cursor-pointer" /></Link>
+                            <Link to='/cart'><FaCartShopping className="text-2xl cursor-pointer" /></Link>
+                            <button className="bg-[#80c342] px-3 py-1 rounded-sm font-semibold text-white cursor" onClick={handleLogout}>Logout</button>
+                        </div>
+                        :
+                        <div className="flex items-center gap-5 ">
+                            <Link to='/login'><FaUser className="text-2xl cursor-pointer" /></Link>
+                            <Link to='/login'><FaRegHeart className="text-2xl cursor-pointer" /></Link>
+                            <Link to='/cart'><FaCartShopping className="text-2xl cursor-pointer" /></Link>
+                            <button className="bg-[#80c342] px-3 py-1 rounded-sm font-semibold text-white cursor">
+                                <Link to='/login'>Login</Link>
+                            </button>
+
+                        </div>
+                }
             </div>
         </ContentWrapper>
     )
