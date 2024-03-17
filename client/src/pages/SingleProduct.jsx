@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom'
 import { FaChevronLeft, FaChevronRight, FaHeart, FaStar } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux'
-import { addWishList } from '../features/wishListSlice';
+
+
 
 import productImg1 from '../assets/productImg1.jpg'
 import ContentWrapper from '../components/ContentWrapper'
 
 import { getSingleProductAction } from '../redux/features/productSlice';
 import { addwishListAction } from "../redux/features/wishListSlice";
+import {addToCartAction} from '../redux/features/cartSlice'
 
 
 const SingleProduct = () => {
@@ -16,6 +18,7 @@ const SingleProduct = () => {
   const { product_id } = useParams()
   const dispatch = useDispatch()
   const { singleProduct, loading, error } = useSelector(state => state.product)
+  const cartItem = useSelector(state => state.cart)
   const auth = useSelector(state => state.auth)
   const wishList = useSelector(state => state.wishlist)
   // const wishList = useSelector(state => state.wishList)
@@ -46,11 +49,25 @@ const SingleProduct = () => {
   const ratings = [1, 2, 3, 4, 5, 6]
   
   const [quantity, setQuantity] = useState(1)
+  const [present, setPresent] = useState(false)
   
   
   const handleWishlist = async () => {
     auth.data ? dispatch(addwishListAction({product_id})) : navigate('/login')
   }
+
+  const handleCart = () => {
+    dispatch(addToCartAction({product_id, quantity}))
+  }
+
+  const checkProdcutPresentInCart = () => {
+    let idx = cartItem?.data?.cartItems?.findIndex((item) => item.product === product_id)
+    idx > -1 ? setPresent(true) : setPresent(false)
+  }
+  useEffect(() => {
+    checkProdcutPresentInCart()
+  }, [cartItem])
+  
 
   // get single product details
   useEffect(() => {
@@ -127,7 +144,7 @@ const SingleProduct = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="font-bold">Add to Wishlist : </span>
-                  <FaHeart className={`text-gray cursor-pointer text-2xl ${auth.data &&  (wishList.data.includes(product_id) ? 'text-pink-600' : 'text-gray')}`} onClick={handleWishlist} />
+                  <FaHeart className={`text-gray cursor-pointer text-2xl ${auth.data && wishList.data &&  (wishList.data.includes(product_id) ? 'text-pink-600' : 'text-gray')}`} onClick={handleWishlist} />
                 </div>
 
                 <div className="flex gap-2 items-center">
@@ -139,7 +156,15 @@ const SingleProduct = () => {
                   </div>
                 </div>
                 <div className="flex gap-5">
-                  <button className="bg-primaryGreen text-white font-bold px-10 py-2 rounded-xl w-[50%] cursor-pointer active:bg-blue-600">Add To Cart</button>
+                  { 
+                    present 
+                    ?
+                    <button className="bg-primaryGreen text-white font-bold px-10 py-2 rounded-xl w-[50%] cursor-pointer active:bg-blue-600" onClick={() => navigate('/cart')}>Go To Cart </button>
+                    : 
+                    <button className="bg-primaryGreen text-white font-bold px-10 py-2 rounded-xl w-[50%] cursor-pointer active:bg-blue-600" onClick={handleCart}>Add To Cart</button>
+
+                  }
+
                   <button className="bg-primaryGreen text-white px-10 py-2 font-bold rounded-xl w-[50%] cursor-pointer active:bg-blue-600">Buy Now</button>
                 </div>
               </div>
